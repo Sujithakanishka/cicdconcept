@@ -22,7 +22,7 @@ export default function Home() {
             Pongal
           </h2>
           <p className="text-xl md:text-2xl text-orange-800 font-semibold">
-            January 14, 2026
+            January 15, 2026
           </p>
         </div>
 
