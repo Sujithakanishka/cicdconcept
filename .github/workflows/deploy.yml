@@ -22,5 +22,11 @@ jobs:
           key: ${{ secrets.PRIVATE_SSH_KEY }}
           port: 22
           script: |
-           ls
+           cd Devops_Example
+           git pull
+           npm install
+           npm run build 
+           npm run start
+           
+      
 
