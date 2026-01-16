@@ -22,11 +22,24 @@ jobs:
           key: ${{ secrets.PRIVATE_SSH_KEY }}
           port: 22
           script: |
-           cd Devops_Example
-           git fetch + git reset --hard 
-           npm install
-           npm run build 
-           pm2 start / restart
+            # Load NVM (FIX npm not found)
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            node -v
+            npm -v
+
+            cd Devops_Example
+
+            # SAFE deploy (FIX git error)
+            git fetch origin
+            git reset --hard origin/main
+
+            npm install
+            npm run build
+
+            # Start app safely
+            pm2 restart app || pm2 start app.js --name app
 
            
       
