@@ -23,10 +23,10 @@ jobs:
           port: 22
           script: |
            cd Devops_Example
-           git pull origin main 
+           git fetch + git reset --hard 
            npm install
            npm run build 
-           npm run start
+           pm2 start / restart
 
            
       
