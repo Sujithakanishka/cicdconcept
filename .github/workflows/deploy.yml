@@ -23,11 +23,11 @@ jobs:
           port: 22
           script: |
            cd Devops_Example
-           git pull
+           git pull origin main 
            npm install
            npm run build 
            npm run start
-           
+
            
       
 
