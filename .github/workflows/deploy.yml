@@ -23,10 +23,11 @@ jobs:
           port: 22
           script: |
             export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-              
+            . "$NVM_DIR/nvm.sh"
+            
             cd cicdconcept
             git pull origin main
             npm install
             npm run build
-            npm run start
+            pm2 restart nextjs-app || pm2 start npm --name nextjs-app -- start
+
